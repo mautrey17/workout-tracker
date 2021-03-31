@@ -14,3 +14,8 @@ app.use(express.static('public'));
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/populatedb', { useNewUrlParser: true });
 
+app.get('/api/workouts')
+
+app.listen(PORT, () => {
+    console.log(`App listening on port ${PORT}`)
+})
