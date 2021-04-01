@@ -10,9 +10,12 @@ const WorkoutSchema = new Schema({
     },
     exercises: [
         {
-            type: String,
-            trim: true,
-            required: true
+            type: {
+                type: String,
+                trim: true,
+                required: true
+            }
+            
         },
         {
             name: String
@@ -34,6 +37,7 @@ const WorkoutSchema = new Schema({
             reps: Number
         }
     ]
+
 });
 
 const Workout = mongoose.model('Workout', WorkoutSchema);
