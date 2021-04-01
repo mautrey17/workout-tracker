@@ -1,20 +1,26 @@
 const express = require('express');
 const mongoose = require('mongoose');
+// const path = require('path');
 
 const PORT = process.env.PORT || 3333;
 
 const db = require('./models');
 
+
 const app = express();
+const router = express.Router();
+
+app.use(express.static('public'));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(express.static('public'));
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/populatedb', { useNewUrlParser: true });
 
-app.get('/api/workouts')
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/workouttrackerdb', { useNewUrlParser: true });
+
+app.use(require('./routes/html.js'));
+app.use(require('./routes/api.js'));
 
 app.listen(PORT, () => {
     console.log(`App listening on port ${PORT}`)
