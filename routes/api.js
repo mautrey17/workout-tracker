@@ -23,7 +23,10 @@ router.get('/api/workouts', (req, res) => {
 });
 
 router.get('/api/workouts/range', (req, res) => {
-
+    Workout.find().sort({$natural: -1}).limit(7)
+        .then(exercises => {
+            res.json(exercises)
+        })
 });
 
 router.post('/api/workouts', (req, res) => {
@@ -37,7 +40,7 @@ router.post('/api/workouts', (req, res) => {
 
 router.put('/api/workouts/:id', (req, res) => {
     console.log(req.body)
-    Workout.update({id: mongojs.ObjectId(req.params.id)}, { $push: 
+    Workout.update({_id: mongojs.ObjectId(req.params.id)}, { $push: 
         {
         exercises: req.body
         }})
