@@ -17,10 +17,10 @@ This full stack web application allows users to save exercises to previous worko
 ## Installation
 In order to install the application, follow these steps: 
 
-Follow the link to this website: 
+Follow the link to this website: https://workout-tracker-a.herokuapp.com/
 
 ## Usage
-The application is deployed at: 
+The application is deployed at: https://workout-tracker-a.herokuapp.com/
 
 ## License
 This application is not protected under a license
