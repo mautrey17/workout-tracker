@@ -3,9 +3,6 @@ const mongojs = require('mongojs');
 const Workout = require('../models/Workout');
 
 router.get('/api/workouts', (req, res) => {
-    //Workout.findAll({}).then(data => {
-    //   res.json(data);
-    //});
 
     Workout.aggregate([
         {
@@ -43,7 +40,7 @@ router.post('/api/workouts', (req, res) => {
 
 router.put('/api/workouts/:id', (req, res) => {
     console.log(req.body)
-    Workout.update({_id: mongojs.ObjectId(req.params.id)}, { $push: 
+    Workout.findByIdAndUpdate({_id: mongojs.ObjectId(req.params.id)}, { $push: 
         {
         exercises: req.body
         }})
